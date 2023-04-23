@@ -1,7 +1,7 @@
 package Vista;
 
+import Controller.CurrencyConverter;
 import Model.ExchangeRate;
-import Operaciones.CurrencyConverter;
 
 import javax.swing.*;
 
@@ -10,9 +10,9 @@ public class VentanaCurrency {
     public static Boolean init() {
         String operation = getExchangeRate();
         Double amount = getAmount();
-        Double convert = CurrencyConverter.convert(amount, operation);
+        Double converted = CurrencyConverter.convert(amount, operation);
         String currencyTo = ExchangeRate.getCurrencyTo(operation);
-        sendMessage(convert,currencyTo);
+        sendMessage(converted,currencyTo);
         return confirmExit();
     }
 
@@ -27,7 +27,7 @@ public class VentanaCurrency {
 
     public static void sendMessage(Double convertCurrency, String codeCurrency) {
         JOptionPane.showMessageDialog(null,
-                "Tienes " + convertCurrency + codeCurrency,
+                String.format("Tienes %.2f %s",convertCurrency,codeCurrency),
                 "Message", JOptionPane.INFORMATION_MESSAGE);
     }
 
