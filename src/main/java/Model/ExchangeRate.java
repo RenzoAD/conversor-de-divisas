@@ -1,4 +1,6 @@
-package Datos;
+package Model;
+
+import java.util.Arrays;
 
 public enum ExchangeRate {
     De_Sol_a_Dolar("PEN-USD", "S/.", "$", 0.26),
@@ -17,7 +19,7 @@ public enum ExchangeRate {
     private String currencyCodeConvert;
     private String currencyCodeFrom;
     private String currencyCodeTo;
-    private double exchangeValue;
+    private Double exchangeValue;
 
     ExchangeRate(String currencyCodeConvert, String currencyCodeFrom, String currencyCodeTo, double exchangeValue) {
         this.currencyCodeConvert = currencyCodeConvert;
@@ -26,20 +28,21 @@ public enum ExchangeRate {
         this.exchangeValue = exchangeValue;
     }
 
-    public String getCurrencyCodeConvert() {
-        return this.currencyCodeConvert;
+    public static Object[] getNames() {
+            return Arrays.stream(ExchangeRate.values())
+                    .map(x -> x.toString().replace("_"," "))
+                    .toArray();
     }
-
-    public double getExchangeValue() {
-        return this.exchangeValue;
+    public static String getCurrencyTo(String operation){
+        return ExchangeRate.valueOf(operation.replace(" ","_")).currencyCodeTo;
     }
-
-    public String getCurrencyCodeFrom() {
-        return currencyCodeFrom;
+    public static String getCurrencyFrom(String operation){
+        return ExchangeRate.valueOf(operation.replace(" ","_")).currencyCodeFrom;
     }
-
-    public String getCurrencyCodeTo() {
-        return currencyCodeTo;
+    public static Double getExchangeValue(String operation){
+        return ExchangeRate.valueOf(operation.replace(" ","_")).exchangeValue;
     }
-
+    public static Double getCodeConvert(String operation){
+        return ExchangeRate.valueOf(operation.replace(" ","_")).exchangeValue;
+    }
 }
