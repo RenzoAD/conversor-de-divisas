@@ -16,10 +16,10 @@ public enum ExchangeRate {
     De_Dolar_a_Libras("USD-GBP", "$", "£", 0.82),
     De_Dolar_a_Euro("USD-EUR", "$", "€", 0.94);
 
-    private String currencyCodeConvert;
-    private String currencyCodeFrom;
-    private String currencyCodeTo;
-    private Double exchangeValue;
+    private final String currencyCodeConvert;
+    private final String currencyCodeFrom;
+    private final String currencyCodeTo;
+    private final Double exchangeValue;
 
     ExchangeRate(String currencyCodeConvert, String currencyCodeFrom, String currencyCodeTo, double exchangeValue) {
         this.currencyCodeConvert = currencyCodeConvert;
@@ -33,16 +33,17 @@ public enum ExchangeRate {
                     .map(x -> x.toString().replace("_"," "))
                     .toArray();
     }
-    public static String getCurrencyTo(String operation){
-        return ExchangeRate.valueOf(operation.replace(" ","_")).currencyCodeTo;
+
+    public String getCurrencyCodeConvert() {
+        return currencyCodeConvert;
     }
-    public static String getCurrencyFrom(String operation){
-        return ExchangeRate.valueOf(operation.replace(" ","_")).currencyCodeFrom;
+    public String getCurrencyCodeFrom() {
+        return currencyCodeFrom;
     }
-    public static Double getExchangeValue(String operation){
-        return ExchangeRate.valueOf(operation.replace(" ","_")).exchangeValue;
+    public String getCurrencyCodeTo() {
+        return currencyCodeTo;
     }
-    public static Double getCodeConvert(String operation){
-        return ExchangeRate.valueOf(operation.replace(" ","_")).exchangeValue;
+    public Double getExchangeValue() {
+        return exchangeValue;
     }
 }

@@ -1,18 +1,18 @@
 package Vista;
 
-import Model.Converter;
+import Model.TypeConverter;
 
 import javax.swing.*;
 
-public class VentanaApp {
+public class VentanaPrincipal {
 
     boolean run = true;
 
-    public VentanaApp() {
+    public VentanaPrincipal() {
 
         while (run) {
             switch (getOperation()) {
-                case "Conversor de Moneda" -> run = VentanaCurrency.init();
+                case "Conversor de Moneda" -> run = new VentanaCurrency().init();
                 case "Conversor de Temperatura" -> {System.out.println("Funcion no implementada"); run=false;}
             }
         }
@@ -25,7 +25,7 @@ public class VentanaApp {
                 "Menú",
                 JOptionPane.PLAIN_MESSAGE,
                 null,
-                Converter.getNames(), Converter.getNames()[0]).toString();
+                TypeConverter.getNames(), TypeConverter.getNames()[0]).toString();
     }
 
 }
