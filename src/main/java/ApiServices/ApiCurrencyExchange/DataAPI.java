@@ -2,7 +2,7 @@ package ApiServices.ApiCurrencyExchange;
 
 import java.util.HashMap;
 
-public record DataApiExchange(
+public record DataAPI(
         String disclaimer,
         String license,
         Long timestamp,

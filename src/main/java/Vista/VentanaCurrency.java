@@ -1,22 +1,23 @@
 package Vista;
 
-import Controller.CurrencyConverter;
+import Controller.CurrencyConverterController;
 import Model.ExchangeRate;
 
 import javax.swing.*;
 
 public class VentanaCurrency {
 
-    private CurrencyConverter currencyConverter;
+    private final CurrencyConverterController currencyConverterController;
     public VentanaCurrency(){
-        currencyConverter = new CurrencyConverter();
+        currencyConverterController = new CurrencyConverterController();
     }
     public Boolean init() {
-        String operation = getExchangeRate();
-        Double amount = getAmount();
 
-        Double converted = currencyConverter.convert(amount, operation);
-        String currencyTo = currencyConverter.getCurrencyTo(operation);
+        Double amount = getAmount();
+        String operation = getExchangeRate();
+
+        Double converted = currencyConverterController.convert(amount, operation);
+        String currencyTo = currencyConverterController.getCodeTo(operation);
 
         sendMessage(converted,currencyTo);
         return confirmExit();
@@ -33,7 +34,7 @@ public class VentanaCurrency {
 
     public void sendMessage(Double convertCurrency, String codeCurrency) {
         JOptionPane.showMessageDialog(null,
-                String.format("Tienes %.2f %s",convertCurrency,codeCurrency),
+                String.format("Tienes %s %.2f",codeCurrency,convertCurrency),
                 "Message", JOptionPane.INFORMATION_MESSAGE);
     }
 
@@ -43,8 +44,8 @@ public class VentanaCurrency {
                 null, ExchangeRate.getNames(), ExchangeRate.getNames()[0]).toString();
     }
 
-    public Double getAmount(){
-        Double amount=0d;
+    public double getAmount(){
+        var amount=0d;
         boolean validacion = true;
         while (validacion) {
             try {
