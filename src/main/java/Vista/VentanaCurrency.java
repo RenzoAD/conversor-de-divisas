@@ -17,9 +17,10 @@ public class VentanaCurrency {
         String operation = getExchangeRate();
 
         Double converted = currencyConverterController.convert(amount, operation);
+        String currencyFrom = currencyConverterController.getCodeFrom(operation);
         String currencyTo = currencyConverterController.getCodeTo(operation);
 
-        sendMessage(converted,currencyTo);
+        sendMessage(amount,converted,currencyFrom,currencyTo);
         return confirmExit();
     }
 
@@ -32,9 +33,9 @@ public class VentanaCurrency {
         return true;
     }
 
-    public void sendMessage(Double convertCurrency, String codeCurrency) {
+    public void sendMessage(Double amount, Double converted,String codeFrom, String codeTo) {
         JOptionPane.showMessageDialog(null,
-                String.format("Tienes %s %.2f",codeCurrency,convertCurrency),
+                String.format("%s%.2f equivale a %s%.2f",codeFrom, amount,codeTo,converted),
                 "Message", JOptionPane.INFORMATION_MESSAGE);
     }
 
