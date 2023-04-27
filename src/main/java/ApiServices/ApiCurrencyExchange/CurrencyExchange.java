@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit;
 public class CurrencyExchange {
 
     private static final String TOKEN = "Token " + System.getenv("API_KEY_CURRENCY");
-    private static final Long TIME_TO_UPDATE = TimeUnit.HOURS.toMillis(2);
+    private static final Long TIME_TO_UPDATE = TimeUnit.HOURS.toMillis(1);
     private static final String FILE_NAME_LOG = "CurrencyAPI";
     private final APIPersistenceLog apiPersistenceLog;
     private final DataAPI dataAPI;

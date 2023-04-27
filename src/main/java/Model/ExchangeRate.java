@@ -11,11 +11,11 @@ public enum ExchangeRate {
     De_Sol_a_Won_Coreano("PEN","KRW", "S/.", "₩"),
     De_Sol_a_PesoMX("PEN","MXN", "S/.", "$"),
     De_Dolar_a_Sol("USD", "PEN", "$", "S/."),
-    De_PesoMX_a_Sol("MXN","PEN", "$", "S/."),
-    De_Won_Coreano_a_Sol("KRW","PEN", "₩", "S/."),
-    De_Yen_a_Sol("JPY","PEN", "¥", "S/."),
-    De_Libras_a_Sol("GBP","PEN", "£", "S/."),
-    De_Euro_a_Sol("EUR","PEN", "€", "S/.");
+    De_Dolar_a_PesoMX("USD","MXN", "$", "$"),
+    De_Dolar_a_Won_Coreano("USD","KRW", "$", "₩"),
+    De_Dolar_a_Yen("USD","JPY", "$", "¥"),
+    De_Dolar_a_Libras("USD","GBP", "$", "£"),
+    De_Dolar_a_Euro("USD","EUR", "$", "€");
 
     private final String symbolFrom;
     private final String symbolTo;
