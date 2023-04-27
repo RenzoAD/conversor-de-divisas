@@ -4,23 +4,39 @@ Este proyecto es parte del desafio del programa ONE | Alura.
 
 Una aplicación sencilla para realizar operaciones de conversión de monedas siguiendo los lineamientos establecidos por el desafío.
 
+Cuenta con la integracion de la API de OpenExchangeRate que refrescará las tasas usadas para la conversión automáticamente cada 2 horas, esto con el objetivo de optimizar el consumo de la API que es limitada a 1000 request por mes. Esta actualización automática se logra a través de un archivo log para la persistencia del JSON obtenido por la API, el cual guarda la fecha y hora de la última actualización como dato que es usado para decirle a la aplicación cuando tiene que actualizar.
+
+¡Próximamente muchas más características y una interfaz increiblemente más avanzada!
 
 ### 💰 Conversor de Moneda:
 
-       - Convierte de Sol a Euro
-       - Convierte de Euro a Sol
-       - Convierte de Sol a Libra 
-       - Convierte de Libra a Sol
-       - Convierte de Sol a Yen
-       - Convierte de Yen a Sol
-       - Convierte de Sol a Dolar
-       - Convierte de Dolar a Sol
+       - Convierte de (S/.)Sol a ($)Dolar
+       - Convierte de (S/.)Sol a (€)Euro
+       - Convierte de (S/.)Sol a (£)Libras
+       - Convierte de (S/.)Sol a (¥)Yen
+       - Convierte de (S/.)Sol a (₩)Won Coreano
+       - Convierte de (S/.)Sol a ($)PesoMX
+       - Convierte de ($)Dolar a (S/.)Sol
+       - Convierte de ($)PesoMX a (S/.)Sol
+       - Convierte de (₩)Won Coreano a (S/.)Sol
+       - Convierte de (¥)Yen a (S/.)Sol
+       - Convierte de (£)Libras a (S/.)Sol
+       - Convierte de (€)Euro a (S/.)Sol
     
+### 📋 Requisitos
+       ☑️ JDK 17
+       ☑️ IDE de tu preferencia (IntelliJ, Eclipse, NetBeans, etc.)
+       
+### 📜 Instrucciones
+       - Descargar el proyecto en formato ZIP, descomprimir e importarlo a tu IDE
+       - Generar un API_KEY(token) registrándonse en la página https://openexchangerates.org/
+       - Definir una variable de entorno en tu sistema con nombre API_KEY_CURRENCY y como valor tu API_KEY
+       - Ejecutar y probarlo 😁
 
 <!-- ### Extras:
 • Se añadió al programa otros tipos de conversiones: Temperatura, Tiempo y Medida.
 -->
-• Se empleo JOptionPane y parte de la librería Swing de Java para el manejo de interfaces gráficas.
+• Se empleó la librería Swing de Java para el manejo de interfaces gráficas.
 <!--
 ### 🌡 Conversor de temperatura:
 
